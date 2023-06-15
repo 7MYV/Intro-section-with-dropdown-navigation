@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+:root {
+    --almost-white: hsl(0, 0%, 98%);
+    --medium-gray: hsl(0, 0%, 41%);
+    --almost-black: hsl(0, 0%, 8%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Epilogue', sans-serif;
+}
+
+body {
+    max-width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--almost-white);
+}
+
+.overlay {
+    width: 100vw;
+    background-color: #0000009c;
+    height: 100vh;
+    position: absolute;
+    transform: translateX(1200px);
+    transition: 0.5s ease-in-out;
+}
+
+.overlay.slide {
+    transform: translateX(0);
+}
+
+header {
+    padding: 40px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.bar {
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #000000;
+    border-radius: 3px;
+    transition: 0.3s all ease-in-out;
+}
+
+.hamburger.open #bar1{
+    transform:translateY(9px)  rotate(45deg) 
+}
+
+.hamburger.open #bar2{
+    opacity: 0;
+}
+
+.hamburger.open #bar3{
+    transform:translateY(-9px)  rotate(-45deg)
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    transform: translateX(900px);
+    background-color: var(--almost-white);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.4s ease-in-out;
+}
+
+nav.slide {
+    opacity: 1;
+    transform: translateX(0)
+}
+
+.nav-links {
+    position: absolute;
+    top: 60px;
+    padding: 40px;
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;    
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--medium-gray);
+}
+
+a:hover {
+    color: var(--almost-black);
+}
+
+.menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.dropdown {
+    padding: 18px 18px 0 18px;
+}
+
+.dropdown-link a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    color: var(--medium-gray);
+}
+
+.dropdown-link a:hover {
+    color: var(--almost-black);
+}
+.dropdown-link a img {
+    width: 18px;
+}
+
+.login-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-links button {
+    width: 100%;
+    cursor: pointer;
+}
+
+.login-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.register-btn {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    flex: 1;
+}
+
+.hero-img {
+    min-width: 400px;
+    width: 100%;
+    max-width: 500px;
+    
+}
+
+.content-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    color: var(--medium-gray);
+    line-height: 26px;
+    max-width: 550px;
+}
+
+.learn-btn {
+    cursor: pointer;
+    padding: 15px 40px;
+    
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid var(--almost-black);
+    background-color: var(--almost-black);
+    color: var(--almost-white);
+
+    margin-bottom: 20px;
+}
+
+.learn-btn:hover {
+    background-color: var(--almost-white);
+    color: var(--almost-black);
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* classes */
+
+.arrow {
+    transition: 0.3s;
+}
+
+.nav-link.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    display: none;
+}
+.nav-link.active .dropdown {
+    display: block;
+
+}
+
+@media screen and (min-width:1000px) {
+    .overlay {
+        display: none;
+    }
+
+    header {
+        padding: 40px 80px;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav {
+        transform: translateX(0);
+        height: 20%;
+        width: 100%;
+        display: block;
+        position: relative;
+        padding: 0;
+        z-index: 5;
+        transition: 0s;
+    }
+    
+    .nav-links {
+        padding:0 0 0 60px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        position: relative;
+        justify-content:space-between;
+    }
+
+    .menu-wrapper, .nav-link {
+        flex-direction: row;
+    }
+
+    .dropdown {
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+
+    .features, .company {
+        position: absolute;
+        margin: 0;
+        padding: 20px 15px 28px 15px;
+        background-color: white;
+        box-shadow: 1px 2px 13px rgba(0, 0, 0, 0.075);
+        border-radius: 20px;
+    }
+
+    .features {
+        top: 50px;
+        left: 10px;
+    }
+
+    .company {
+        top: 50px;
+        left: 185px;
+    }
+
+    .login-links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+
+    main {
+        height: 100%;
+        flex-direction: row;
+        padding: 0 30px;
+        gap:20px;
+        align-items: last baseline;
+        justify-content: center;
+        margin-bottom: 80px;
+    }
+
+    .content-wrapper {
+        padding-top: 240px;
+        text-align: left;
+        align-items: start;
+        justify-content:space-between;
+        max-width: 650px;
+        align-self: stretch;
+    }
+
+    h1 {
+        font-size: 72px;
+        max-width: 480px;
+    }
+
+    p {
+        max-width: 420px;
+    }
+
+    .hero-img {
+        max-width: 550px;
+    }
+    
+
+    .logos {
+        gap: 40px;
+    }
+
+
+    
+    
+
+    
+}
